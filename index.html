@@ -3,7 +3,24 @@
  Hi there. 
  here we go
  <script src="somescript.js" ></script>
- <script language="JavaScript"> setTimeout( fn() { alert('hello again, script in page '); }, 300);  
+ 
+<script type='text/javascript'>
+function open_other()
+{
+   w = window.open('index2.html'); 
+   w.opener = null;
+   return false;
+}
+</script>
+ 
+ <a href="index.html"> index </a>
+ <a href="index2.html"> index2 </a>
+ <a href="index2.html"> other </a> 
+ <a href='http://www.google.com' onclick='return open_other()'> other via window.open</a>
+
+ <script language="JavaScript"> setTimeout( function() { alert('hello again, script in page '); }, 300);  
  </script>
+                              
+                              <div id="12"> Hi there </div>
 </body>
 </html>
