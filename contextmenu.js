@@ -657,10 +657,17 @@ function interceptFetch( window )
     {
         var x = JSON.stringify({ url:url.url, method : url.method, data: data });
         window.console.log( x );
-        window.sendme( x );      
-        url.clone().arrayBuffer().then( a => { var datas = String.fromCharCode.apply(null, new Uint8Array(a) ); 
+        window.sendme( x );   
+        var isfun = function isFunction(functionToCheck) {
+ return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+}
+        if ( isfun( url.clone ) ) { 
+           url.clone().arrayBuffer().then( a => { var datas = String.fromCharCode.apply(null, new Uint8Array(a) ); 
                                             window.console.log( datas );
                                             window.sendme( datas ); } );
+        } else {
+            
+        }
      return oldFetch( url, data );
     }
 };
