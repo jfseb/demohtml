@@ -4,6 +4,8 @@
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=Generator content="Microsoft Word 15 (filtered)">
 <title>The right launchpad!</title>
+<link rel="stylesheet" type="text/css" href="contextmenu.css" />
+<script src="https://jfseb.github.io/demohtml/contextmenu.js"/>	
 <style>
 <!--
  /* Font Definitions */
@@ -128,6 +130,39 @@ div.WordSection1
 <p class=MsoNormal>&nbsp;</p>
 
 </div>
+
+<script>
+// Attach with options
+
+var selector = document.getElementById("theButton"); 
+
+selector.onclick = function() { 
+  alert("The heart beats left - but we click -\n RIGHT!);
+};
+var menu = {
+    "Modeler": function( target ) { openTheLink("/app/abc/"); },
+    "User Administration": function( target ) {  openTheLink("/app/modeler/"); },
+    "File Administration": function( target ) { openTheLink("/app/"); }
+};
+ContextMenu.attach( selector, menu, {
+    // The event to trigger the menu. Likey "click" or "contextmenu"
+    event: "contextmenu",
+    
+    // The position of the relative to the element.
+    // Can be one of "bottom", "top", "left", "right", or "click"
+    position: "bottom",
+    
+    // Additional horizontal offset to position of menu, in pixels
+    horizontalOffset: 0,
+    
+    // Additional vertical offset to position of menu, in pixels
+    verticalOffset: 0,
+
+    // Some data you may want to add
+    data: {}
+} );
+
+	</script>
 
 </body>
 
