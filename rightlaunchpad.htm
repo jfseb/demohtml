@@ -134,18 +134,18 @@ div.WordSection1
 <script>
 // Attach with options
 
-themenu = undefined;
+let themenu = undefined;
 
-var openTheLink = function( a ) 
+let openTheLink = function( a ) 
 {
   console.log('open' + a );
   themenu.close();
-}
+};
 
 var selector = document.getElementById("theButton"); 
 
 selector.onclick = function() { 
-  alert("The heart beats left - but we click -\n RIGHT!);
+  alert("The heart beats left - but we click -\n RIGHT!");
 };
 var menu = {
     "Modeler": function( target ) { openTheLink("/app/abc/"); },
@@ -169,8 +169,7 @@ themenu = ContextMenu.attach( selector, menu, {
     // Some data you may want to add
     data: {}
 } );
-
-	</script>
+</script>
 
 </body>
 
