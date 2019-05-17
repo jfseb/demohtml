@@ -100,7 +100,7 @@ div.WordSection1
   padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
   text-align:center;line-height:normal'><span style='font-size:36.0pt'><img
-  width=318 height=307 src="https://jfseb.github.io/demohtml/imageMB.png"
+  width=318 id="theButton" height=307 src="https://jfseb.github.io/demohtml/imageMB.png"
   alt="Click me "></span></p>
   </td>
   <td width=305 valign=top style='width:228.8pt;border-top:none;border-left:
@@ -148,9 +148,10 @@ selector.onclick = function() {
   alert("The heart beats left - but we click -\n RIGHT!");
 };
 var menu = {
-    "Modeler": function( target ) { openTheLink("/app/abc/"); },
-    "User Administration": function( target ) {  openTheLink("/app/modeler/"); },
-    "File Administration": function( target ) { openTheLink("/app/"); }
+    "Modeler": function( target ) { openTheLink("/app/pipeline-modeler/"); },
+    "User Administration": function( target ) {  openTheLink("/app/datahub-app-system-management/#/users/profile/peter-a"); },
+    "File Administration": function( target ) { openTheLink("/app/datahub-app-system-management/#/files"); },
+    "Connection Manager": function( target ) { openTheLink("/app/datahub-app-connection/"); }
 };
 themenu = ContextMenu.attach( selector, menu, {
     // The event to trigger the menu. Likey "click" or "contextmenu"
