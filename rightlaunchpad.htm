@@ -150,8 +150,14 @@ selector.onclick = function() {
 };
 var menu = {
     "Modeler": function( target ) { doOpenTheLink("/app/pipeline-modeler/"); },
-    "User Administration": function( target ) {  doOpenTheLink("/app/datahub-app-system-management/#/users/profile/peter-a"); },
-    "File Administration": function( target ) {  doOpenTheLink("/app/datahub-app-system-management/#/files"); },
+    "User Administration": function( target ) {  
+	    console.log('yeah');
+	    doOpenTheLink("/app/datahub-app-system-management/#/users/profile/peter-a"); 
+    },
+    "File Administration": function( target ) {  
+	    console.log('year');
+	    doOpenTheLink("/app/datahub-app-system-management/#/files");
+         },
     "Connection Manager": function( target ) {   doOpenTheLink("/app/datahub-app-connection/"); }
 };
 themenu = ContextMenu.attach( selector, menu, {
