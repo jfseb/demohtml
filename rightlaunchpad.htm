@@ -136,9 +136,10 @@ div.WordSection1
 
 let themenu = undefined;
 
-let openTheLink = function( a ) 
+let doOpenTheLink = function( a ) 
 {
   console.log('open' + a );
+  window.openTheLink( a );
   themenu.close();
 };
 
@@ -148,10 +149,10 @@ selector.onclick = function() {
   alert("The heart beats left - but we click -\n RIGHT!");
 };
 var menu = {
-    "Modeler": function( target ) { openTheLink("/app/pipeline-modeler/"); },
-    "User Administration": function( target ) {  openTheLink("/app/datahub-app-system-management/#/users/profile/peter-a"); },
-    "File Administration": function( target ) { openTheLink("/app/datahub-app-system-management/#/files"); },
-    "Connection Manager": function( target ) { openTheLink("/app/datahub-app-connection/"); }
+    "Modeler": function( target ) { window.openTheLink("/app/pipeline-modeler/"); },
+    "User Administration": function( target ) {  doOpenTheLink("/app/datahub-app-system-management/#/users/profile/peter-a"); },
+    "File Administration": function( target ) {  doOpenTheLink("/app/datahub-app-system-management/#/files"); },
+    "Connection Manager": function( target ) {   doOpenTheLink("/app/datahub-app-connection/"); }
 };
 themenu = ContextMenu.attach( selector, menu, {
     // The event to trigger the menu. Likey "click" or "contextmenu"
