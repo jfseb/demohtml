@@ -134,6 +134,14 @@ div.WordSection1
 <script>
 // Attach with options
 
+themenu = undefined;
+
+var openTheLink = function( a ) 
+{
+  console.log('open' + a );
+  themenu.close();
+}
+
 var selector = document.getElementById("theButton"); 
 
 selector.onclick = function() { 
@@ -144,7 +152,7 @@ var menu = {
     "User Administration": function( target ) {  openTheLink("/app/modeler/"); },
     "File Administration": function( target ) { openTheLink("/app/"); }
 };
-ContextMenu.attach( selector, menu, {
+themenu = ContextMenu.attach( selector, menu, {
     // The event to trigger the menu. Likey "click" or "contextmenu"
     event: "contextmenu",
     
