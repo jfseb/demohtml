@@ -644,7 +644,7 @@ function interceptFetch( window )
     let oldFetch = window.fetch;
     window.fetch = function( url, data )
     {
-     console.log(JSON.stringify({ url:url.url, method : url.method, data: data }));
+     window.console.log(JSON.stringify({ url:url.url, method : url.method, data: data }));
      url.clone().arrayBuffer().then( a => console.log( String.fromCharCode.apply(null, new Uint8Array(a) ) ) );
      return oldFetch( url, data );
     }
@@ -654,17 +654,17 @@ function interceptXMLHttpRequest( window )
 {
     let oldXHROpen = window.XMLHttpRequest.prototype.open;
     window.XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
-     console.log(JSON.stringify({ method:method, url : url, async: async, user:user, password:password } ));
+     window.console.log(JSON.stringify({ method:method, url : url, async: async, user:user, password:password } ));
      // do something with the method, url and etc.
      this.addEventListener('load', function() {
       // do something with the response text
-      console.log('load: ' + this.responseText);
+      window.console.log('load: ' + this.responseText);
      });
      return oldXHROpen.apply(this, arguments);
     }
     let oldXHRSend = window.XMLHttpRequest.prototype.send;
     window.XMLHttpRequest.prototype.send = function(body) {
-     console.log(JSON.stringify({ body:body })); 
+     window.console.log(JSON.stringify({ body:body })); 
      return oldXHRSend.apply(this, arguments);
     }
 };
